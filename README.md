@@ -12,3 +12,6 @@
 
 # 종료 예정일
 2023년 6월 14일
+
+# 사용기술
+React, Redux, reactstrap, scss
