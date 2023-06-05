@@ -26,5 +26,6 @@ React, Redux, reactstrap, scss
 
 ##### 6월 8일
 - 드래그 앤 드롭 도입
+- 샘플 데이터 추가
 
 ##### 6월 9일
