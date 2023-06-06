@@ -16,7 +16,7 @@ React, Redux, reactstrap, scss
 # 블로그 (tistory)
 - 투두리스트 올리는 과정을 개발과 함께 게시할 예정입니다.
 - [(1) 시작하기 전](https://berkley.tistory.com/5)
-- (2) 각 해상도별로 UI 변경(반응형 웹&앱 개발)
+- [(2) Todolist 작업 전 반응 형 웹&앱 설정](https://berkley.tistory.com/6)
 -
 
 # 진행 히스토리(예정사항포함)
