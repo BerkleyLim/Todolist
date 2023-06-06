@@ -31,6 +31,7 @@ React, Redux, reactstrap, scss
 
 ##### 6월 6일
 - 600px, 1200px 기준 UI 설정 (반응형 웹&앱 습득을 위한 연습 필요 사항 진행)
+- @media를 활용하여 반응형 웹&앱 UI 제작하였다.
 
 ##### 6월 7일
 - Todo List 기본 기능 추가 및 추가 디자인
