@@ -17,15 +17,22 @@ React, Redux, reactstrap, scss
 - 투두리스트 올리는 과정을 개발과 함께 게시할 예정입니다.
 - [(1) 시작하기 전](https://berkley.tistory.com/5)
 - [(2) Todolist 작업 전 반응 형 웹&앱 설정](https://berkley.tistory.com/6)
--
+- [(3) 반응형 Todolist UI 작업 진행](https://berkley.tistory.com/7)
+- (4) Todo List 기본 기능 추가 (Redux state 활용)
+- (5) Todo List 추가 디자인
+- (6) Todo List 드래그 앤 드롭 기능 추가
 
 # 진행 히스토리(예정사항포함)
 ##### 6월 5일
 - 리파지토리 생성
 - 리액트 설치 (Node.js버전 : v16.18.0)
+- 리액트 개발 환경 설정
 
-##### 6월 6 - 7일
-- 400px, 800px 컴포넌트 별 폰트 크기, 사각형 크기 설정 (현재 반응형 웹&앱 연습 필요 사항이므로 진행 예정)
+##### 6월 6일
+- 600px, 1200px 기준 UI 설정 (반응형 웹&앱 습득을 위한 연습 필요 사항 진행)
+
+##### 6월 7일
+- Todo List 기본 기능 추가 및 추가 디자인
 
 ##### 6월 8일
 - 드래그 앤 드롭 도입
