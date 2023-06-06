@@ -1,22 +1,183 @@
 /* 반응형 웹 설정 */
-
 /* 1200px 초과시 */
-.container {
-  background-color: green;
+@media (min-width:1200px) {
+  .background-container {
+    margin:5% 0 0 0 
+  }
+  .container {
+    background-color: green;
+    margin : 0 auto;
+    text-align: center;
+    max-width:1200px;
+    vertical-align: center;
+  }
+  
+  .header-container{
+    color: white;
+    font-size: 10vh;
+    font-weight:bold;
+  }
+
+  .todo {
+    display:flex;
+    flex-wrap: wrap;
+    vertical-align: center;
+  }
+  .todoContainer {
+    min-width:48%;
+    padding: 5px;
+  }
+
+  .todoTitle {
+    font-size:4vh;
+    padding-left:10px;
+  }
+
+  .todoContents {
+    font-size:3vh;
+    padding-left:15px;
+    padding-bottom:20px;
+    text-align: left;
+  }
+
+  .addGroup {
+    height: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    vertical-align: auto;
+  }
+
+  .addInput {
+    width:50%;
+    height:100%;
+  }
+  .addButton {
+    width:10%;
+    height:100%;
+  }
 }
 
 /* 1200px 이하 일 경우 */
 @media (max-width:1200px) {
+  .background-container {
+    margin:2% 0 0 0 
+  }
   .container {
     background-color: yellow;
+    margin : 0 auto;
+    text-align: center;
+    max-width:960px;
+    vertical-align: center;
+  }
+
+  .header-container {
+    color: red;
+    font-size: 7vh;
+    font-weight:bold;
+  }
+
+  .todoContainer {
+    min-width:100%;
+    padding: 1% 5% 1% 5%;
+    display: flex;
+    vertical-align: center;
+  }
+
+  .todoTitle {
+    flex: 0 0 auto;
+    width:auto;
+    font-size:4vh;
+    padding-left:10px;
+  }
+  
+  .todoContents {
+    flex: 0 0 auto;
+    width:auto;
+    font-size:3vh;
+    padding-left:15px;
+  }
+
+  .addGroup {
+    height: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    vertical-align: auto;
+  }
+
+  .addInput {
+    width:50%;
+    height:100%;
+  }
+  .addButton {
+    width:10%;
+    height:100%;
   }
 }
 
 /* 600px 이하일 경우 */
 @media (max-width:600px) {
+  .background-container {
+    margin:0; 
+  }
+
   .container {
     background-color: red;
+    margin : 0 auto;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .header-container {
+    color:blue;
+    font-size: 5vh;
+    font-weight:bold;
+  }
+
+  .todo {
+    display:flex;
+    flex-wrap: wrap;
+    vertical-align: center;
+  }
+  .todoContainer {
+    width:100%;
+    padding: 5px;
+    display:flex;
+    flex-wrap: wrap;
+  }
+
+  .todoTitle {
+    width:100%;
+    font-size:4vh;
+    padding-left:10px;
+  }
+
+  .todoContents {
+    width:auto;
+    padding-bottom:20px;
+    font-size:3vh;
+    padding-left:20px;
+  }
+
+  .addGroup {
+    height: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    vertical-align: auto;
+  }
+
+  .addGroup {
+    height: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    vertical-align: auto;
+  }
+
+  .addInput {
+    width:50%;
+    height:100%;
+  }
+  .addButton {
+    width:10%;
+    height:100%;
   }
 }
-
-
