@@ -14,7 +14,8 @@
 React, Redux, reactstrap, scss
 
 # 블로그 (tistory)
-- 투두리스트 올리는 과정을 개발과 함께 게시할 예정입니다.
+- 블로그 주소 : https://berkley.tistory.com/category/IT%EA%B2%8C%EC%8B%9C%ED%8C%90/todolist%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9%EC%95%B1
+- 투두리스트 올리는 과정을 개발과 블로그에 개발 과정의 대한 결과물을 꾸준히 올립니다.
 - [(1) 시작하기 전](https://berkley.tistory.com/5)
 - [(2) Todolist 작업 전 반응 형 웹&앱 설정](https://berkley.tistory.com/6)
 - [(3) 반응형 Todolist UI 작업 진행](https://berkley.tistory.com/7)
