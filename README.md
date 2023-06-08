@@ -21,7 +21,7 @@ React, Redux, reactstrap, scss
 - [(3) 반응형 Todolist UI 작업 진행](https://berkley.tistory.com/7)
 - [(4) Todo List 기본 기능 CRUD 추가 - 1 (읽기, 쓰기)](https://berkley.tistory.com/8)
 - [(5) Todo List 기본 기능 CRUD 추가 - 2 (갱신)](https://berkley.tistory.com/9)
-- (6) Todo List 기본 기능 CRUD 추가 - 3 (제거)
+- [(6) Todo List 기본 기능 CRUD 추가 - 3 (제거)](https://berkley.tistory.com/10)
 - (7) Todo List Redux Local Storage 리팩토링 
 - (8) 각각의 가능을 모듈별로 별도 분리 및 클린 코딩으로 리팩토링
 - (9) Todo List 추가 디자인
@@ -42,7 +42,7 @@ React, Redux, reactstrap, scss
 - 샘플 데이터 추가
 
 ##### 6월 8일
-- Todo List 기본 기능 추가 (갱신)
+- Todo List 기본 기능 추가 (갱신, 삭제)
 - 불변성 기능 추가 (immutability-helper)
 
 
