@@ -11,7 +11,7 @@
 2023년 6월 5일 - 2023년 6월 14일
 
 # 사용기술
-React, Redux, reactstrap, scss
+Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, immutability-helper
 
 # 블로그 (tistory)
 - 블로그 주소 : https://berkley.tistory.com/category/IT%EA%B2%8C%EC%8B%9C%ED%8C%90/todolist%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9%EC%95%B1
@@ -49,12 +49,14 @@ React, Redux, reactstrap, scss
 
 
 ##### 6월 9일
-- Redux Local Storage를 이용하여 Todolist 데이터 값 저장하기
-- 드래그 앤 드롭 도입
+- Redux 설치 및 적용 
+- state를 App.js에서 Redux state로 적용
+- Local Storage를 이용한 TodoList 데이터 값 저장
 
 
 ##### 6월 10일
-- Todo List UI 사용자 편의성 개편
+- 각 컴포넌트를 별도로 분할 작업하기
+- 
 
 ##### 6월 11일
 
