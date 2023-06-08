@@ -20,10 +20,12 @@ React, Redux, reactstrap, scss
 - [(2) Todolist 작업 전 반응 형 웹&앱 설정](https://berkley.tistory.com/6)
 - [(3) 반응형 Todolist UI 작업 진행](https://berkley.tistory.com/7)
 - [(4) Todo List 기본 기능 CRUD 추가 - 1 (읽기, 쓰기)](https://berkley.tistory.com/8)
-- (5) Todo List 기본 기능 CRUD 추가 - 2 (갱신, 제거)
-- (6) Todo List Redux Local Storage 리팩토링 
-- (7) Todo List 추가 디자인
-- (8) Todo List 드래그 앤 드롭 기능 추가
+- [(5) Todo List 기본 기능 CRUD 추가 - 2 (갱신)](https://berkley.tistory.com/9)
+- (6) Todo List 기본 기능 CRUD 추가 - 3 (제거)
+- (7) Todo List Redux Local Storage 리팩토링 
+- (8) 각각의 가능을 모듈별로 별도 분리 및 클린 코딩으로 리팩토링
+- (9) Todo List 추가 디자인
+- (10) Todo List 드래그 앤 드롭 기능 추가
 
 # 진행 히스토리(예정사항포함)
 ##### 6월 5일
@@ -36,14 +38,16 @@ React, Redux, reactstrap, scss
 - @media를 활용하여 반응형 웹&앱 UI 제작하였다.
 
 ##### 6월 7일
-- Todo List 기본 기능 추가
+- Todo List 기본 기능 추가 (생성, 읽기)
 - 샘플 데이터 추가
 
 ##### 6월 8일
-- Redux Local Storage를 이용하여 Todolist 데이터 값 저장하기
+- Todo List 기본 기능 추가 (갱신)
+- 불변성 기능 추가 (immutability-helper)
 
 
 ##### 6월 9일
+- Redux Local Storage를 이용하여 Todolist 데이터 값 저장하기
 - 드래그 앤 드롭 도입
 
 
