@@ -21,6 +21,11 @@ function App() {
    */
   const [todoList, setTodoList] = useState([]);
   const [createInputTitle, setCreateInputTitle] = useState();
+  // 갱신모드 설정
+  const [isTitleUpdate, setIsTitleUpdate] = useState(false);
+
+  // Todolist title 수정용 state
+  const [changeTitle, setChangeTitle] = useState();
 
   useEffect(() => {
     setTodoList([
@@ -65,24 +70,29 @@ function App() {
     setTodoList(to);
   };
 
-  // 갱신모드 설정
-  const [isTitleUpdate, setIsTitleUpdate] = useState(false);
-  
-  // Todolist title 수정용 state
-  const [changeTitle, setChangeTitle] = useState();
+  // 수정용 메서드
   const updateTitlOnChange = (e, index) => {
     const { name, value } = e.target;
     setChangeTitle({ [index]: { [name]: value } });
     console.log(changeTitle);
   };
 
-  // 입력 후 갱신 메서드
+  // 수정 부분 입력 후 갱신 메서드
   const updateTitle = (index) => {
     setTodoList(
       update(todoList, {
         [index]: {
           title: { $set: changeTitle[index].title },
         },
+      })
+    );
+  };
+
+  // 삭제 관련 메소드 (제목)
+  const removeTitle = (index) => {
+    setTodoList(
+      update(todoList, {
+        $splice: [[index, 1]],
       })
     );
   };
@@ -129,6 +139,9 @@ function App() {
                           수정
                         </Button>{" "}
                         <PlusCircle />
+                        <Button onClick={() => removeTitle(index)}>
+                          <Trash3 />
+                        </Button>
                       </div>
                     )}
                   </div>
