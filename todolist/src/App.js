@@ -1,5 +1,6 @@
 import {
   Button,
+  ButtonGroup,
   Card,
   CardBody,
   CardHeader,
@@ -10,6 +11,7 @@ import {
 import "./App.css";
 import { PlusCircle, Trash3 } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
+import update from "immutability-helper";
 
 function App() {
   /**
@@ -18,6 +20,7 @@ function App() {
    * 이 값은
    */
   const [todoList, setTodoList] = useState([]);
+  const [createInputTitle, setCreateInputTitle] = useState();
 
   useEffect(() => {
     setTodoList([
@@ -39,10 +42,8 @@ function App() {
     ]);
   }, []);
 
-  const [createInputTitle, setCreateInputTitle] = useState();
-
   /**
-   * 다음은 TodoList 입력용 이벤트 함수 
+   * 다음은 TodoList 입력용 이벤트 함수
    */
   const createTitleOnchange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +52,6 @@ function App() {
       [name]: value,
     });
   };
-
   /**
    * 입력시 Todolist 추가하는 기능
    */
@@ -63,7 +63,28 @@ function App() {
       contents: [],
     });
     setTodoList(to);
-    console.log(to);
+  };
+
+  // 갱신모드 설정
+  const [isTitleUpdate, setIsTitleUpdate] = useState(false);
+  
+  // Todolist title 수정용 state
+  const [changeTitle, setChangeTitle] = useState();
+  const updateTitlOnChange = (e, index) => {
+    const { name, value } = e.target;
+    setChangeTitle({ [index]: { [name]: value } });
+    console.log(changeTitle);
+  };
+
+  // 입력 후 갱신 메서드
+  const updateTitle = (index) => {
+    setTodoList(
+      update(todoList, {
+        [index]: {
+          title: { $set: changeTitle[index].title },
+        },
+      })
+    );
   };
 
   return (
@@ -83,7 +104,33 @@ function App() {
               todoList?.map((todo, index) => (
                 <div key={index} className="todoContainer">
                   <div className="todoTitle">
-                    {todo?.title} <PlusCircle />
+                    {isTitleUpdate ? (
+                      <div>
+                        <Input
+                          name="title"
+                          defaultValue={todo?.title}
+                          onChange={(e) => updateTitlOnChange(e, index)}
+                        />
+                        <Button onClick={() => updateTitle(index)}>
+                          todolist수정
+                        </Button>
+                        <Button
+                          onClick={() => setIsTitleUpdate(!isTitleUpdate)}
+                        >
+                          취소
+                        </Button>
+                      </div>
+                    ) : (
+                      <div>
+                        {todo?.title}
+                        <Button
+                          onClick={() => setIsTitleUpdate(!isTitleUpdate)}
+                        >
+                          수정
+                        </Button>{" "}
+                        <PlusCircle />
+                      </div>
+                    )}
                   </div>
 
                   {todo?.contents?.map((tc, tcIndex) => (
@@ -100,8 +147,15 @@ function App() {
            *
            */}
           <Form className="addGroup">
-            <Input className="addInput" name="title" defaultValue={createInputTitle} onChange={createTitleOnchange} />
-            <Button className="addButton" onClick={createTitleButton}>추가</Button>
+            <Input
+              className="addInput"
+              name="title"
+              defaultValue={createInputTitle}
+              onChange={createTitleOnchange}
+            />
+            <Button className="addButton" onClick={createTitleButton}>
+              추가
+            </Button>
           </Form>
         </CardBody>
       </Card>
