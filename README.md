@@ -22,7 +22,7 @@ Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, imm
 - [(4) Todo List 기본 기능 CRUD 추가 - 1 (읽기, 쓰기)](https://berkley.tistory.com/8)
 - [(5) Todo List 기본 기능 CRUD 추가 - 2 (갱신)](https://berkley.tistory.com/9)
 - [(6) Todo List 기본 기능 CRUD 추가 - 3 (제거)](https://berkley.tistory.com/10)
-- (7) Todo List Redux Local Storage 리팩토링 
+- [(7) Todo List Redux Local Storage 리팩토링](https://berkley.tistory.com/11) 
 - (8) 각각의 가능을 모듈별로 별도 분리 및 클린 코딩으로 리팩토링
 - (9) Todolist 메인 부분 이외의 상세부분의 대해 CRUD 작성
 - (10) Todo List 드래그 앤 드롭 기능 추가
