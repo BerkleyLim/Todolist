@@ -1,6 +1,5 @@
 import {
   Button,
-  ButtonGroup,
   Card,
   CardBody,
   CardHeader,
@@ -10,8 +9,9 @@ import {
 } from "reactstrap";
 import "./App.css";
 import { PlusCircle, Trash3 } from "react-bootstrap-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import update from "immutability-helper";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   /**
@@ -19,33 +19,14 @@ function App() {
    * title, contents
    * 이 값은
    */
-  const [todoList, setTodoList] = useState([]);
+  const todoList = useSelector((state) => state.todoList.array);
+  const dispatch = useDispatch();
   const [createInputTitle, setCreateInputTitle] = useState();
   // 갱신모드 설정
   const [isTitleUpdate, setIsTitleUpdate] = useState(false);
 
   // Todolist title 수정용 state
   const [changeTitle, setChangeTitle] = useState();
-
-  useEffect(() => {
-    setTodoList([
-      {
-        title: "Redux 학습하기",
-        contents: [
-          "로그인/로그아웃 가능 여부 확인",
-          "localstorage/sessionstorage 학습",
-        ],
-      },
-      {
-        title: "SpringBoot 학습하기",
-        contents: ["Spring Security 구현", "Spring MVC 패턴 익히기"],
-      },
-      {
-        title: "JWT 인증 처리",
-        contents: ["JWT 개념 익히기"],
-      },
-    ]);
-  }, []);
 
   /**
    * 다음은 TodoList 입력용 이벤트 함수
@@ -67,7 +48,13 @@ function App() {
       title: createInputTitle?.title,
       contents: [],
     });
-    setTodoList(to);
+    /**
+     * dispatch는 todolist.js 의 reducer의 action으로 사용되는 함수로
+     * state 값을 변경시켜준다.
+     * redux의 state 값은 불변성을 유지하는 것이 목적이다.
+     * switch문의 action.type 변수에 따라 return으로 명령어대로 해당 state 값을 변경 시켜준다.
+     */
+    dispatch({ type: "setTodoList", array: to });
   };
 
   // 수정용 메서드
@@ -79,22 +66,30 @@ function App() {
 
   // 수정 부분 입력 후 갱신 메서드
   const updateTitle = (index) => {
-    setTodoList(
-      update(todoList, {
+    /**
+     * 불변성 유지하면서 갱신 시킬 수 있습니다.
+     */
+    dispatch({
+      type: "setTodoList",
+      array: update(todoList, {
         [index]: {
           title: { $set: changeTitle[index].title },
         },
-      })
-    );
+      }),
+    });
   };
 
   // 삭제 관련 메소드 (제목)
   const removeTitle = (index) => {
-    setTodoList(
-      update(todoList, {
+    /**
+     * 불변성 유지하면서 삭제 시킬 수 있습니다.
+     */
+    dispatch({
+      type: "setTodoList",
+      array: update(todoList, {
         $splice: [[index, 1]],
-      })
-    );
+      }),
+    });
   };
 
   return (
