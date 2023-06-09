@@ -54,7 +54,6 @@ Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, imm
 
 
 ##### 6월 10일
-- 각 컴포넌트를 별도로 분할 작업하기
 - Todolist 상세 부분 crud 적용
 
 
@@ -63,3 +62,4 @@ Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, imm
 
 ##### 6월 12 - 14일
 - UI 재구성 (사용자 편의 기능성)
+- 각 컴포넌트를 별도로 분할 작업하기
