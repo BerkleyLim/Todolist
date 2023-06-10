@@ -8,7 +8,8 @@ const SmallList = ({
   tc,
   index,
   tcIndex,
-  isBehaviorChange, setIsBehaviorChange
+  isBehaviorChange, 
+  setIsBehaviorChange
 }) => {
   const dispatch = useDispatch();
   const todoList = useSelector((state) => state.todoList.array);
