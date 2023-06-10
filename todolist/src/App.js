@@ -28,6 +28,15 @@ function App() {
   // Todolist title 수정용 state
   const [changeTitle, setChangeTitle] = useState();
 
+  // todolist 소분류 추가 입력 모드 활성화 state
+  const [isContentsAdd, setIsContentsAdd] = useState(false);
+  const [createInputContents, setCreateInputContents] = useState();
+
+  // todolist 소분류 갱신모드 설정 여부
+  const [isContentsUpdate, setIsContentsUpdate] = useState(false);
+  // todolist 입력
+  const [updateInputContents, setUpdateInputContents] = useState();
+
   /**
    * 다음은 TodoList 입력용 이벤트 함수
    */
@@ -57,6 +66,30 @@ function App() {
     dispatch({ type: "setTodoList", array: to });
   };
 
+  /**
+   * todolist 소분류 추가 작업 입력
+   */
+  const addContentsOnChange = (e, index) => {
+    const { name, value } = e.target;
+    setCreateInputContents({ [index]: { [name]: value } });
+    console.log(createInputContents);
+  };
+  /**
+   *  Todolist 소분류 추가하는 기능
+   */
+  const createContentsButton = (todo, index) => {
+    let tmp = todo;
+    tmp?.contents.push(createInputContents[index].contents);
+    dispatch({
+      type: "setTodoList",
+      array: update(todoList, {
+        $merge: {
+          [index]: tmp,
+        },
+      }),
+    });
+  };
+
   // 수정용 메서드
   const updateTitlOnChange = (e, index) => {
     const { name, value } = e.target;
@@ -79,6 +112,34 @@ function App() {
     });
   };
 
+  /**
+   * 소분류용 갱신 메서드 입력
+   */
+  const updateContentsOnChange = (e, index, tcIndex) => {
+    const { name, value } = e.target;
+    setUpdateInputContents({ [index]: { [tcIndex]: { [name]: value } } });
+    console.log(updateInputContents);
+  };
+
+  /**
+   * 소분류용 갱신 메서드 수행 = state 값 반영
+   */
+  const updateContents = (index, tcIndex) => {
+    /**
+     * 불변성 유지하면서 갱신 시킬 수 있습니다.
+     */
+    let contents = updateInputContents[index][tcIndex].contents;
+    let to = todoList[index];
+    to.contents[tcIndex] = contents;
+
+    dispatch({
+      type: "setTodoList",
+      array: update(todoList, {
+        [index]: { $set: to },
+      }),
+    });
+  };
+
   // 삭제 관련 메소드 (제목)
   const removeTitle = (index) => {
     /**
@@ -90,6 +151,26 @@ function App() {
         $splice: [[index, 1]],
       }),
     });
+  };
+
+  // 삭제 관련 메소드 (소분류)
+  const removeContents = (index, tcIndex) => {
+    let to = update(todoList[index].contents, {
+      $splice: [[tcIndex, 1]],
+    });
+
+    console.log(to);
+
+    dispatch({
+      type: "setTodoList",
+      array: update(todoList, {
+          [index]: {
+            contents: {$set: to},
+          },
+      }),
+    });
+
+    // console.log(tcIndex)
   };
 
   return (
@@ -133,7 +214,11 @@ function App() {
                         >
                           수정
                         </Button>{" "}
-                        <PlusCircle />
+                        <Button
+                          onClick={() => setIsContentsAdd(!isContentsAdd)}
+                        >
+                          <PlusCircle />
+                        </Button>
                         <Button onClick={() => removeTitle(index)}>
                           <Trash3 />
                         </Button>
@@ -141,9 +226,61 @@ function App() {
                     )}
                   </div>
 
+                  {isContentsAdd && (
+                    <>
+                      {"소분류 추가용 Input : "}
+                      <Input
+                        name="contents"
+                        // defaultValue={}
+                        onChange={(e) => addContentsOnChange(e, index)}
+                      />
+                      <Button onClick={() => createContentsButton(todo, index)}>
+                        추가
+                      </Button>
+                    </>
+                  )}
                   {todo?.contents?.map((tc, tcIndex) => (
                     <div key={tcIndex} className="todoContents">
-                      - {tc} <Trash3 />
+                      {isContentsUpdate ? (
+                        <div>
+                          -
+                          <Input
+                            name="contents"
+                            defaultValue={tc}
+                            onChange={(e) =>
+                              updateContentsOnChange(e, index, tcIndex)
+                            }
+                          />
+                          <Button
+                            onClick={() => updateContents(index, tcIndex)}
+                          >
+                            todolist수정
+                          </Button>
+                          <Button
+                            onClick={() =>
+                              setIsContentsUpdate(!isContentsUpdate)
+                            }
+                          >
+                            취소
+                          </Button>
+                        </div>
+                      ) : (
+                        <div>
+                          - {tc}
+                          <Button
+                            onClick={() =>
+                              setIsContentsUpdate(!isContentsUpdate)
+                            }
+                          >
+                            수정
+                          </Button>{" "}
+                          <Button
+                            onClick={() => removeContents(index, tcIndex)}
+                          >
+                            <Trash3 />
+                          </Button>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
