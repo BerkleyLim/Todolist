@@ -77,24 +77,25 @@
   }
 
   .todoContainer {
-    min-width:100%;
+    max-width: 100%;
     padding: 1% 5% 1% 5%;
     display: flex;
-    vertical-align: center;
+    flex-wrap: wrap;
   }
 
   .todoTitle {
-    flex: 0 0 auto;
-    width:auto;
-    font-size:4vh;
-    padding-left:10px;
+    flex: 0 0 40%;
+    /* width: auto; */
+    font-size: 4vh;
+    padding-left: 10px;
   }
   
   .todoContents {
-    flex: 0 0 auto;
-    width:auto;
-    font-size:3vh;
-    padding-left:15px;
+    flex: 0 0 120%;
+    width: auto;
+    font-size: 3vh;
+    flex-wrap: wrap;
+    padding-left: 15px;
   }
 
   .addGroup {
