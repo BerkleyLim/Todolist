@@ -8,14 +8,14 @@
 - 리액트 뿐만 아닌 css도 연습을 위해 진행
 
 # 진행기간
-2023년 6월 5일 - 2023년 6월 14일
+2023년 6월 5일 - 2023년 6월 14일 
+(2023년 6월 11일 프론트엔드 부분 완료, 현재 퍼블리셔 영역 진행중)
 
 # 사용기술
-Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, immutability-helper
+Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, immutability-helper, react-dnd, etc
 
-# 블로그 (tistory)
+# 개발 히스토리 참조 (tistory)
 - 블로그 주소 : https://berkley.tistory.com/category/IT%EA%B2%8C%EC%8B%9C%ED%8C%90/todolist%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9%EC%95%B1
-- 투두리스트 올리는 과정을 개발과 블로그에 개발 과정의 대한 결과물을 꾸준히 올립니다.
 - [(1) 시작하기 전](https://berkley.tistory.com/5)
 - [(2) Todolist 작업 전 반응 형 웹&앱 설정](https://berkley.tistory.com/6)
 - [(3) 반응형 Todolist UI 작업 진행](https://berkley.tistory.com/7)
@@ -25,7 +25,7 @@ Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, imm
 - [(7) Todo List Redux Local Storage 리팩토링](https://berkley.tistory.com/11) 
 - [(8) Todolist 메인 부분 이외의 상세부분의 대해 CRUD 작성](https://berkley.tistory.com/12)
 - [(9) Todo List 클린 코드로 리팩토링 및 고도화 작업 (코드줄 줄이기, 분할, 필요없는 주석 제거 등)](https://berkley.tistory.com/13)
-- (10) Todo List 드래그 앤 드롭 기능 추가
+- [(10) Todo List 드래그 앤 드롭 기능 추가](https://berkley.tistory.com/15)
 - [(별첨) Todo List 추가 디자인 및 사용자 편의성 UI 작성 (Button, layout 등)](https://berkley.tistory.com/14)
 
 
@@ -64,5 +64,5 @@ Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, imm
 - Todo List 드래그 앤 드롭 기능 추가
 
 ##### 6월 12 - 14일
-- UI 재구성 (사용자 편의 기능성)
+- UI 재구성 (사용자 편의 기능성) : 퍼블리셔 영역이라 개선중입니다.
 
