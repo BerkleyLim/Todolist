@@ -15,7 +15,7 @@
 Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, immutability-helper, react-dnd, etc
 
 # 개발 히스토리 참조 (tistory)
-- 블로그 주소 : https://berkley.tistory.com/category/IT%EA%B2%8C%EC%8B%9C%ED%8C%90/todolist%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9%EC%95%B1
+- 블로그 이동 : 여기로 [클릭](https://berkley.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/todolist%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9%EC%95%B1) 하세요.
 - [(1) 시작하기 전](https://berkley.tistory.com/5)
 - [(2) Todolist 작업 전 반응 형 웹&앱 설정](https://berkley.tistory.com/6)
 - [(3) 반응형 Todolist UI 작업 진행](https://berkley.tistory.com/7)
