@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 import BigList from "./category/big/index";
 import SmallList from "./category/small/index";
 import { useDispatch, useSelector } from "react-redux";
 import update from "immutability-helper";
 import { Button, Input } from "reactstrap";
+import { useDrag, useDrop } from "react-dnd";
 
-const TodoMain = ({ index, todo }) => {
+const ItemTypes = {
+  CARD: 'card'
+}
+
+const TodoMain = ({ index, todo, dndMoveTodoList }) => {
   const todoList = useSelector((state) => state.todoList.array);
   const dispatch = useDispatch();
 
@@ -45,8 +50,62 @@ const TodoMain = ({ index, todo }) => {
     setIsContentsAdd(!isContentsAdd)
   };
 
+  // drag and drop 관련
+  // 참조 : https://velog.io/@suyeonme/React-DragDrop-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+  // 문서 참조 : https://react-dnd.github.io/react-dnd/docs/api/use-drag
+  const ref = useRef(null); // (*)
+
+  const [, drop] = useDrop({
+    // (*)
+    accept: ItemTypes.CARD,
+    hover(item, monitor) {
+      if (item.index === index)
+        return
+      if (!ref.current) {
+        return;
+      }
+
+      const dragIndex = item.index;
+      const hoverIndex = index;
+
+      if (dragIndex === hoverIndex) {
+        return;
+      }
+
+      const hoverBoundingRect = ref.current?.getBoundingClientRect();
+      const hoverMiddleY =
+        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const clientOffset = monitor.getClientOffset();
+      const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+
+      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+        return;
+      }
+
+      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+        return;
+      }
+
+      dndMoveTodoList(dragIndex, hoverIndex);
+
+      item.index = hoverIndex;
+    },
+  });
+
+  const [{ isDragging }, drag] = useDrag({
+    // (*)
+    item: { type: ItemTypes.CARD, todo, index },
+    type: ItemTypes.CARD,
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
+
+  drag(drop(ref)); // (*)
+  // drag and drop 끝
+
   return (
-    <div key={index} className="todoContainer">
+    <div ref={ref} key={index} className="todoContainer">
       <BigList
         todo={todo}
         todoList={todoList}
@@ -79,6 +138,8 @@ const TodoMain = ({ index, todo }) => {
           />
         </div>
       ))}
+
+{/* <Button onClick={() => dndTodoList(dragIndex, hoverIndex)} /> */}
     </div>
   );
 };
