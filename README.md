@@ -29,38 +29,54 @@ Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, imm
 - [(별첨) Todo List 추가 디자인 및 사용자 편의성 UI 작성 (Button, layout 등)](https://berkley.tistory.com/14)
 
 
+# Getting Started 
+`$ npx create-react-app todolist`  설치 시 Getting Started 메뉴얼이 적여있는 것과 동일합니다.
+
+### 서버 다운로드 후 사용 방법
+1) 먼저 powershell을 오픈하여 git 저장소 디렉토리로 이동
+2) `git clone https://github.com/BerkleyLim/Todolist.git`
+3) `cd Todolist`
+4) `npm install` (현재 nodejs 16.18.0 버전 사용하였으므로 이에 참조 바랍니다. node버전과 scss 버전이 호환 되지 않는 경우 버그 걸리기 때문에 사용 하지 않았습니다.)
+5) `npm run start`
+6) 리액트의 대한 자세한 사항은 [여기](todolist\README.md) 클릭 
+
+참조:
+``` 
+배포시 `npm run build` 후 `serve -s build`로 열면 배포환경에서 서버가 동작이 가능하고, 개발서버로만 사용하고 싶으면 `npm run start`로 사용하시면 됩니다.
+```
+
 # 진행 히스토리(예정사항포함)
-##### 6월 5일
+### 6월 5일
 - 리파지토리 생성
 - 리액트 설치 (Node.js버전 : v16.18.0)
 - 리액트 개발 환경 설정
 
-##### 6월 6일
+### 6월 6일
 - 600px, 1200px 기준 UI 설정 (반응형 웹&앱 습득을 위한 연습 필요 사항 진행)
 - @media를 활용하여 반응형 웹&앱 UI 제작하였다.
 
-##### 6월 7일
+### 6월 7일
 - Todo List 기본 기능 추가 (생성, 읽기)
 - 샘플 데이터 추가
 
-##### 6월 8일
+### 6월 8일
 - Todo List 기본 기능 추가 (갱신, 삭제)
 - 불변성 기능 추가 (immutability-helper)
 
 
-##### 6월 9일
+### 6월 9일
 - Redux 설치 및 적용 
 - state를 App.js에서 Redux state로 적용
 - Local Storage를 이용한 TodoList 데이터 값 저장
 
 
-##### 6월 10일
+### 6월 10일
 - Todolist 상세 부분 crud 적용
 - 각 컴포넌트를 별도로 분할 작업하기
 - 클린 코드 만들기
 
 
-##### 6월 11일
+### 6월 11일
 - Todo List 드래그 앤 드롭 기능 추가
 
 ##### 6월 12 - 14일
