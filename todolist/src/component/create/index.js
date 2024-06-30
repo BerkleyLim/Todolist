@@ -6,16 +6,18 @@ const TodoCreate = () => {
   const todoList = useSelector((state) => state.todoList.array);
   const dispatch = useDispatch();
   const [createInputTitle, setCreateInputTitle] = useState();
-   /**
+
+  /**
    * 다음은 TodoList 입력용 이벤트 함수
    */
-   const createTitleOnchange = (e) => {
+  const createTitleOnchange = (e) => {
     const { name, value } = e.target;
     setCreateInputTitle({
       ...createInputTitle,
       [name]: value,
     });
   };
+
   /**
    * 입력시 Todolist 추가하는 기능
    */
@@ -34,18 +36,19 @@ const TodoCreate = () => {
      */
     dispatch({ type: "setTodoList", array: to });
   };
-  return ( 
+
+  return (
     <Form className="addGroup">
-    <Input
-      className="addInput"
-      name="title"
-      defaultValue={createInputTitle}
-      onChange={createTitleOnchange}
-    />
-    <Button className="addButton" onClick={createTitleButton}>
-      추가
-    </Button>
-  </Form>
+      <Input
+        className="addInput"
+        name="title"
+        value={createInputTitle?.title || ''}
+        onChange={createTitleOnchange}
+      />
+      <Button className="addButton" color="primary" onClick={createTitleButton}>
+        추가
+      </Button>
+    </Form>
   )
 }
 

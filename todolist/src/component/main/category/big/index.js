@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Input } from "reactstrap";
 import update from "immutability-helper";
 
-const BigList = ({ todo, index, isContentsAdd, setIsContentsAdd}) => {
+const BigList = ({ todo, index, isContentsAdd, setIsContentsAdd }) => {
   const todoList = useSelector((state) => state.todoList.array);
   const dispatch = useDispatch();
-  
+
   // 갱신모드 설정
   const [isTitleUpdate, setIsTitleUpdate] = useState(false);
 
@@ -35,7 +35,6 @@ const BigList = ({ todo, index, isContentsAdd, setIsContentsAdd}) => {
     });
     // 갱신 후 바로 입력모드 해제
     setIsTitleUpdate(!isTitleUpdate)
-    
   };
 
   // 삭제 관련 메소드 (제목)
@@ -50,37 +49,39 @@ const BigList = ({ todo, index, isContentsAdd, setIsContentsAdd}) => {
       }),
     });
   };
+
   return (
-    <>
-      <div className="todoTitle">
-        {isTitleUpdate ? (
-          <div>
-            <Input
-              name="title"
-              defaultValue={todo?.title}
-              onChange={(e) => updateTitlOnChange(e, index)}
-            />
-            <Button onClick={() => updateTitle(index)}>todolist수정</Button>
-            <Button onClick={() => setIsTitleUpdate(!isTitleUpdate)}>
-              취소
-            </Button>
-          </div>
-        ) : (
-          <div>
-            {todo?.title}
-            <Button onClick={() => setIsTitleUpdate(!isTitleUpdate)}>
-              수정
-            </Button>{" "}
-            <Button onClick={() => setIsContentsAdd(!isContentsAdd)}>
-              <PlusCircle />
-            </Button>
-            <Button onClick={() => removeTitle(index)}>
-              <Trash3 />
-            </Button>
-          </div>
-        )}
-      </div>
-    </>
+    <div className="todoTitle">
+      {isTitleUpdate ? (
+        <div>
+          <Input
+            name="title"
+            defaultValue={todo?.title}
+            onChange={(e) => updateTitlOnChange(e, index)}
+            className="mb-2"
+          />
+          <Button color="primary" onClick={() => updateTitle(index)} className="edit-button">
+            <i className="bi bi-pencil"></i> 수정
+          </Button>
+          <Button color="secondary" onClick={() => setIsTitleUpdate(!isTitleUpdate)} className="cancel-button">
+            취소
+          </Button>
+        </div>
+      ) : (
+        <div>
+          {todo?.title}
+          <Button color="warning" onClick={() => setIsTitleUpdate(!isTitleUpdate)} className="edit-button">
+            <i className="bi bi-pencil"></i> 수정
+          </Button>{" "}
+          <Button color="success" onClick={() => setIsContentsAdd(!isContentsAdd)} className="add-button">
+            <PlusCircle /> 추가
+          </Button>
+          <Button color="danger" onClick={() => removeTitle(index)} className="delete-button">
+            <Trash3 /> 삭제
+          </Button>
+        </div>
+      )}
+    </div>
   );
 };
 

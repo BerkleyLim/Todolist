@@ -1,177 +1,217 @@
 /* 반응형 웹 설정 */
+/* 공통 스타일 */
+.background-container {
+  padding: 10px;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.todo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.todoContainer {
+  width: 100%; /* 공통으로 100% 지정 */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.todoTitle {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.todoContents {
+  padding-left: 15px;
+  padding-bottom: 20px;
+  text-align: left;
+  color: #6c757d;
+}
+
+.addGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.addInput,
+.addButton {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.addInput {
+  width: 50%;
+}
+
+.addButton {
+  width: 10%;
+}
+
+/* 공통 버튼 스타일 */
+.todoContainer button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.todoContainer button i {
+  margin-right: 5px;
+}
+
+button.edit-button {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+button.add-button {
+  background-color: #28a745;
+  color: #fff;
+}
+
+button.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+button.cancel-button {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* 공통 입력 스타일 */
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 /* 1200px 초과시 */
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .background-container {
-    margin:5% 0 0 0 
-  }
-  .container {
-    background-color: green;
-    margin : 0 auto;
-    text-align: center;
-    max-width:1200px;
-    vertical-align: center;
-  }
-  
-  .header-container{
-    color: white;
-    font-size: 10vh;
-    font-weight:bold;
+    margin: 5% 0 0 0;
   }
 
-  .todo {
-    display:flex;
-    flex-wrap: wrap;
-    vertical-align: center;
+  .container {
+    background-color: #f0f8ff; /* Light Blue */
+    max-width: 1200px;
   }
-  .todoContainer {
-    min-width:48%;
-    padding: 5px;
+
+  .header-container {
+    color: #343a40;
+    font-size: 4rem;
+    margin-bottom: 30px;
   }
 
   .todoTitle {
-    font-size:4vh;
-    padding-left:10px;
+    font-size: 2rem;
   }
 
   .todoContents {
-    font-size:3vh;
-    padding-left:15px;
-    padding-bottom:20px;
-    text-align: left;
-  }
-
-  .addGroup {
-    height: 35px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    vertical-align: auto;
+    font-size: 1.5rem;
   }
 
   .addInput {
-    width:50%;
-    height:100%;
+    width: 50%;
   }
+
   .addButton {
-    width:10%;
-    height:100%;
+    width: 10%;
   }
 }
 
 /* 1200px 이하 일 경우 */
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
   .background-container {
-    margin:2% 0 0 0 
+    margin: 2% 0 0 0;
   }
+
   .container {
-    background-color: yellow;
-    margin : 0 auto;
-    text-align: center;
-    max-width:960px;
-    vertical-align: center;
+    background-color: #faf0e6; /* Linen */
+    max-width: 960px;
   }
 
   .header-container {
-    color: red;
-    font-size: 7vh;
-    font-weight:bold;
-  }
-
-  .todoContainer {
-    max-width: 100%;
-    padding: 1% 5% 1% 5%;
-    display: flex;
-    flex-wrap: wrap;
+    color: #343a40;
+    font-size: 3rem;
   }
 
   .todoTitle {
     flex: 0 0 40%;
-    /* width: auto; */
-    font-size: 4vh;
-    padding-left: 10px;
-  }
-  
-  .todoContents {
-    flex: 0 0 120%;
-    width: auto;
-    font-size: 3vh;
-    flex-wrap: wrap;
-    padding-left: 15px;
+    font-size: 2rem;
   }
 
-  .addGroup {
-    height: 35px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    vertical-align: auto;
+  .todoContents {
+    flex: 0 0 100%;
+    width: auto;
+    font-size: 1.5rem;
   }
 
   .addInput {
-    width:50%;
-    height:100%;
+    width: 60%;
   }
+
   .addButton {
-    width:10%;
-    height:100%;
+    width: 15%;
   }
 }
 
 /* 600px 이하일 경우 */
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .background-container {
-    margin:0; 
+    margin: 0;
   }
 
   .container {
-    background-color: red;
-    margin : 0 auto;
-    text-align: center;
-    vertical-align: center;
+    background-color: #ffebcd; /* Blanched Almond */
+    padding: 10px;
   }
 
   .header-container {
-    color:blue;
-    font-size: 5vh;
-    font-weight:bold;
-  }
-
-  .todo {
-    display:flex;
-    flex-wrap: wrap;
-    vertical-align: center;
-  }
-  .todoContainer {
-    width:100%;
-    padding: 5px;
-    display:flex;
-    flex-wrap: wrap;
+    color: #343a40;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
   }
 
   .todoTitle {
-    width:100%;
-    font-size:4vh;
-    padding-left:10px;
+    width: 100%;
+    font-size: 2rem;
   }
 
   .todoContents {
-    width:auto;
-    padding-bottom:20px;
-    font-size:3vh;
-    padding-left:20px;
-  }
-
-  .addGroup {
-    height: 35px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    vertical-align: auto;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
   }
 
   .addInput {
-    width:50%;
-    height:100%;
+    width: 70%;
   }
+
   .addButton {
-    width:10%;
-    height:100%;
+    width: 20%;
   }
 }

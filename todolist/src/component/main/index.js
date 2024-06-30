@@ -1,11 +1,11 @@
-import React, { useCallback, useRef, useState } from "react";
-
+import React, { useRef, useState } from "react";
 import BigList from "./category/big/index";
 import SmallList from "./category/small/index";
 import { useDispatch, useSelector } from "react-redux";
 import update from "immutability-helper";
 import { Button, Input } from "reactstrap";
 import { useDrag, useDrop } from "react-dnd";
+import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons 추가
 
 const ItemTypes = {
   CARD: 'card'
@@ -15,7 +15,7 @@ const TodoMain = ({ index, todo, dndMoveTodoList }) => {
   const todoList = useSelector((state) => state.todoList.array);
   const dispatch = useDispatch();
 
-    // todolist 소분류 추가 입력 모드 활성화 state
+  // todolist 소분류 추가 입력 모드 활성화 state
   // 여기는 소분류 입력 모드 활성화 및 비활성화 작업을 진행함
   const [isContentsAdd, setIsContentsAdd] = useState(false);
 
@@ -32,6 +32,7 @@ const TodoMain = ({ index, todo, dndMoveTodoList }) => {
     setCreateInputContents({ [index]: { [name]: value } });
     console.log(createInputContents);
   };
+
   /**
    *  Todolist 소분류 추가하는 기능
    */
@@ -59,41 +60,27 @@ const TodoMain = ({ index, todo, dndMoveTodoList }) => {
     // (*)
     accept: ItemTypes.CARD,
     hover(item, monitor) {
-      if (item.index === index)
-        return
-      if (!ref.current) {
-        return;
-      }
+      if (item.index === index) return;
+      if (!ref.current) return;
 
       const dragIndex = item.index;
       const hoverIndex = index;
-
-      if (dragIndex === hoverIndex) {
-        return;
-      }
+      if (dragIndex === hoverIndex) return;
 
       const hoverBoundingRect = ref.current?.getBoundingClientRect();
-      const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
       const clientOffset = monitor.getClientOffset();
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
-      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-        return;
-      }
-
-      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-        return;
-      }
+      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) return;
+      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) return;
 
       dndMoveTodoList(dragIndex, hoverIndex);
-
       item.index = hoverIndex;
     },
   });
 
   const [{ isDragging }, drag] = useDrag({
-    // (*)
     item: { type: ItemTypes.CARD, todo, index },
     type: ItemTypes.CARD,
     collect: (monitor) => ({
@@ -120,8 +107,9 @@ const TodoMain = ({ index, todo, dndMoveTodoList }) => {
           <Input
             name="contents"
             onChange={(e) => addContentsOnChange(e, index)}
+            className="mb-2"
           />
-          <Button onClick={() => createContentsButton(todo, index)}>
+          <Button color="primary" onClick={() => createContentsButton(todo, index)}>
             추가
           </Button>
         </>
@@ -134,12 +122,11 @@ const TodoMain = ({ index, todo, dndMoveTodoList }) => {
             index={index}
             tcIndex={tcIndex}
             todoList={todoList}
-            isBehaviorChange={isBehaviorChange} setIsBehaviorChange={setIsBehaviorChange}
+            isBehaviorChange={isBehaviorChange}
+            setIsBehaviorChange={setIsBehaviorChange}
           />
         </div>
       ))}
-
-{/* <Button onClick={() => dndTodoList(dragIndex, hoverIndex)} /> */}
     </div>
   );
 };
