@@ -10,6 +10,7 @@
 # 진행기간
 2023년 6월 5일 - 2023년 6월 14일 
 (2023년 6월 11일 프론트엔드 부분 완료)
+[2024년 6월 30일 UI 적용 완료]
 
 # 사용기술
 Nodejs(16.18.0), npm(9.6.3), Javascript ES13, React, Redux, reactstrap, css, immutability-helper, react-dnd, etc
